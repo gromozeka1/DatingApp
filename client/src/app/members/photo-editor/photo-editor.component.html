@@ -1,10 +1,13 @@
 <div class="row mb-3" *ngIf="member">
-    <div class="col-2 mb-1" *ngFor="let photo of member.photos">
-        <img src="{{photo.url}}" alt="photo of user" class="img-thumbnail mb-1">
+    <div class="col-2 mb-1 img-wrapper" *ngFor="let photo of member?.photos">
+        <img src="{{photo.url}}" alt="{{photo.url}}" class="img-thumbnail mb-1" [class.not-approved]="!photo.isApproved">
+        <div class="text-center img-text" *ngIf="!photo.isApproved">
+            <span>Awaiting approval</span>
+        </div>
         <div class="text-center">
             <button
                 class="btn btn-sm"
-                [disabled]="photo.isMain"
+                [disabled]="photo.isMain || !photo.isApproved"
                 (click)="setMainPhoto(photo)"
                 [ngClass]="photo.isMain ? 'btn-success active' :'btn-outline-success'"
             >Main</button>
@@ -16,10 +19,9 @@
         </div>
     </div>
 </div>
+
 <div class="row">
-
     <div class="col-3">
-
         <h3>Add Photos</h3>
 
         <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
@@ -78,5 +80,4 @@
         </div>
 
     </div>
-
 </div>

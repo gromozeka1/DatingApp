@@ -4,7 +4,6 @@ using API.Extensions;
 using API.Middleware;
 using API.SignalR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
