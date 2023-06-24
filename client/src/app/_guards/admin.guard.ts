@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AccountService } from '../_services/account.service';
-import { ToastrNotificationService } from '../_services/toastr.service';
 import { map } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class AdminGuard implements CanActivate {
 
   constructor(
     private accountService: AccountService,
-    private toastrService: ToastrNotificationService
+    private toastrService: ToastrService
   ) {}
 
   canActivate(
@@ -25,7 +25,7 @@ export class AdminGuard implements CanActivate {
         if (user.roles.includes('Admin') || user.roles.includes('Moderator')) {
           return true;
         } else {
-          this.toastrService.showError('You cannot enter this area');
+          this.toastrService.show('You cannot enter this area');
           return false;
         }
       })
