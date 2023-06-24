@@ -35,8 +35,8 @@
     "ngx-toastr": "^15.2.2",
     "rxjs": "~6.5.3",
     "tslib": "^2.5.3",
-    "webpack": "^5.86.0",
-    "zone.js": "~0.13.0"
+    "webpack": "^5.88.0",
+    "zone.js": "^0.13.1"
   },
   "devDependencies": {
     "@angular/cli": "^15.2.8",
@@ -51,6 +51,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "^4.8.2"
+    "typescript": "^4.9.5"
   }
 }
