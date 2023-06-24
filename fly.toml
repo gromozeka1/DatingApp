@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for cold-wave-6497 on 2023-06-24T15:42:21+02:00
+# fly.toml app configuration file generated for cold-wave-6497 on 2023-06-24T18:58:05+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -10,9 +10,9 @@ primary_region = "waw"
   image = "gromozeka1/datingapp:latest"
 
 [env]
-  ASPNETCORE_URLS="http://+:8080"
-  CloudinarySettings__CloudName="dk9vbibn3"
-  CloudinarySettings__ApiKey="717925642367712"
+  ASPNETCORE_URLS = "http://+:8080"
+  CloudinarySettings__ApiKey = "717925642367712"
+  CloudinarySettings__CloudName = "dk9vbibn3"
 
 [http_service]
   internal_port = 8080
