@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AccountService } from '../_services/account.service';
-import { ToastrService } from 'ngx-toastr';
+import { ToastrNotificationService } from '../_services/toastr.service';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -10,22 +10,25 @@ import { map } from 'rxjs/operators';
 })
 export class AdminGuard implements CanActivate {
 
-  constructor(private accountService: AccountService, private toastr: ToastrService) {
-  }
+  constructor(
+    private accountService: AccountService,
+    private toastrService: ToastrNotificationService
+  ) {}
 
-  canActivate(): Observable<boolean> {
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> {
     return this.accountService.currentUser$.pipe(
       map(user => {
-        if(!user) return false;
-        if(user.roles.includes('Admin') || user.roles.includes('Moderator')){
+        if (!user) return false;
+        if (user.roles.includes('Admin') || user.roles.includes('Moderator')) {
           return true;
-        }
-        else{
-          this.toastr.error("You cannot enter this area");
+        } else {
+          this.toastrService.showError('You cannot enter this area');
           return false;
         }
       })
-    )
+    );
   }
-  
 }
