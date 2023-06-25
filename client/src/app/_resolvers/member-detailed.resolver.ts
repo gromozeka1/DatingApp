@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
 import { MembersService } from '../_services/members.service';
 import { Member } from '../_modules/member';
 

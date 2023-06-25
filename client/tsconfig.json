@@ -26,7 +26,7 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-    "types": ["body-parser"],    
+    "types": ["body-parser", "jest", "mocha"],
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AccountService } from '../_services/account.service';
 import { map } from 'rxjs/operators';
@@ -15,10 +15,7 @@ export class AdminGuard implements CanActivate {
     private toastrService: ToastrService
   ) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> {
+  canActivate(): Observable<boolean> {
     return this.accountService.currentUser$.pipe(
       map(user => {
         if (!user) return false;

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { MemberEditComponent } from '../members/member-edit/member-edit.component';
 import { ConfirmService } from '../_services/confirm.service';
 import { Observable, of } from 'rxjs';
